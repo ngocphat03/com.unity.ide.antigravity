@@ -7,6 +7,20 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.ide.antigravity": {
+      "version": "file:com.unity.ide.antigravity",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.unity.ide.antigravity.tests": {
+      "version": "file:com.unity.ide.antigravity.tests",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.ide.antigravity": "1.0.0"
+      }
+    },
     "com.unity.ide.rider": {
       "version": "2.0.7",
       "depth": 0,
@@ -16,19 +30,21 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.ide.vscode": {
-      "version": "file:com.unity.ide.vscode",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+    "com.unity.sysroot": {
+      "version": "2.0.10",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
     },
-    "com.unity.ide.vscode.tests": {
-      "version": "file:com.unity.ide.vscode.tests",
-      "depth": 0,
-      "source": "embedded",
+    "com.unity.sysroot.linux-x86_64": {
+      "version": "2.0.9",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {
-        "nuget.moq": "1.0.0"
-      }
+        "com.unity.sysroot": "2.0.10"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
       "version": "1.1.16",
@@ -41,19 +57,13 @@
       },
       "url": "https://packages.unity.com"
     },
-    "nuget.castle-core": {
-      "version": "1.0.1",
-      "depth": 2,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "nuget.moq": {
-      "version": "1.0.0",
-      "depth": 1,
+    "com.unity.toolchain.macos-x86_64-linux-x86_64": {
+      "version": "2.0.11",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
-        "nuget.castle-core": "1.0.1"
+        "com.unity.sysroot": "2.0.10",
+        "com.unity.sysroot.linux-x86_64": "2.0.9"
       },
       "url": "https://packages.unity.com"
     },

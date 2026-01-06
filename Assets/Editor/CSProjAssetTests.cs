@@ -9,7 +9,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace VSCodeEditor.Runtime_spec.CSProject
+namespace AntigravityEditor.Runtime_spec.CSProject
 {
     [TestFixture]
     [Serializable]
@@ -36,7 +36,8 @@ public class SimpleCSharpScript : MonoBehaviour
 }";
 
         [SetUp]
-        public void SetUp() {
+        public void SetUp()
+        {
             var projectDirectory = Directory.GetParent(Application.dataPath).FullName;
             m_ProjectGeneration = new ProjectGeneration(projectDirectory);
         }
@@ -107,7 +108,7 @@ public class SimpleCSharpScript : MonoBehaviour
                 "PLATFORM_STANDALONE_WIN",
                 UnityEditor.BuildTarget.StandaloneLinux64,
                 "PLATFORM_STANDALONE_LINUX",
-                () => {});
+                () => { });
         }
 
         [UnityPlatform(RuntimePlatform.OSXEditor)]
@@ -120,7 +121,7 @@ public class SimpleCSharpScript : MonoBehaviour
                 "PLATFORM_STANDALONE_OSX",
                 UnityEditor.BuildTarget.StandaloneWindows64,
                 "PLATFORM_STANDALONE_WIN",
-                () => {});
+                () => { });
         }
 
         [UnityPlatform(RuntimePlatform.LinuxEditor)]
@@ -133,7 +134,7 @@ public class SimpleCSharpScript : MonoBehaviour
                 "PLATFORM_STANDALONE_LINUX",
                 UnityEditor.BuildTarget.StandaloneOSX,
                 "PLATFORM_STANDALONE_OSX",
-                () => {});
+                () => { });
         }
 
         [UnityPlatform(RuntimePlatform.WindowsEditor)]

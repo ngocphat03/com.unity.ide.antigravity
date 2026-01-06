@@ -1,0 +1,11 @@
+{
+    "name": "com.unity.ide.antigravity.tests",
+    "displayName": "Antigravity Editor Tests",
+    "version": "1.0.0",
+    "unity": "2019.2",
+    "unityRelease": "0a12",
+    "description": "Tests for Antigravity Editor integration package.",
+    "dependencies": {
+        "com.unity.ide.antigravity": "1.0.0"
+    }
+}

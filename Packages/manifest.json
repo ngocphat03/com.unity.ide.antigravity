@@ -1,7 +1,10 @@
 {
   "disableProjectUpdate": true,
   "dependencies": {
+    "com.unity.ide.antigravity": "file:com.unity.ide.antigravity",
+    "com.unity.ide.antigravity.tests": "file:com.unity.ide.antigravity.tests",
     "com.unity.ide.rider": "2.0.7",
-    "com.unity.test-framework": "1.1.16"
+    "com.unity.test-framework": "1.1.16",
+    "com.unity.toolchain.macos-x86_64-linux-x86_64": "2.0.11"
   }
 }
