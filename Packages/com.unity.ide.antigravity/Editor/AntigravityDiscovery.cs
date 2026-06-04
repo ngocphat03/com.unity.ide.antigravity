@@ -26,25 +26,34 @@ namespace AntigravityEditor
             return m_Installations.ToArray();
         }
 
+        public static string GetEditorName(string path)
+        {
+            return "Antigravity IDE";
+        }
+
         void FindInstallationPaths()
         {
             string[] possiblePaths =
 #if UNITY_EDITOR_OSX
             {
-                "/Applications/Antigravity.app"
+                "/Applications/Antigravity IDE.app"
             };
 #elif UNITY_EDITOR_WIN
             {
-                GetProgramFiles() + @"/Google/Antigravity/bin/antigravity.cmd",
-                GetProgramFiles() + @"/Google/Antigravity/Antigravity.exe",
-                GetLocalAppData() + @"/Programs/Google/Antigravity/bin/antigravity.cmd",
-                GetLocalAppData() + @"/Programs/Google/Antigravity/Antigravity.exe",
+                GetProgramFiles() + @"/Google/Antigravity IDE/bin/antigravity-ide.cmd",
+                GetProgramFiles() + @"/Google/Antigravity IDE/bin/antigravity.cmd",
+                GetProgramFiles() + @"/Google/Antigravity IDE/Antigravity IDE.exe",
+                GetProgramFiles() + @"/Google/Antigravity IDE/Antigravity.exe",
+                GetLocalAppData() + @"/Programs/Google/Antigravity IDE/bin/antigravity-ide.cmd",
+                GetLocalAppData() + @"/Programs/Google/Antigravity IDE/bin/antigravity.cmd",
+                GetLocalAppData() + @"/Programs/Google/Antigravity IDE/Antigravity IDE.exe",
+                GetLocalAppData() + @"/Programs/Google/Antigravity IDE/Antigravity.exe",
             };
 #else
             {
-                "/usr/bin/antigravity",
-                "/usr/local/bin/antigravity",
-                "/snap/bin/antigravity"
+                "/usr/bin/antigravity-ide",
+                "/usr/local/bin/antigravity-ide",
+                "/snap/bin/antigravity-ide"
             };
 #endif
             var existingPaths = possiblePaths.Where(AntigravityExists).ToList();
@@ -64,7 +73,7 @@ namespace AntigravityEditor
                         new CodeEditor.Installation
                         {
                             Path = path,
-                            Name = "Antigravity"
+                            Name = GetEditorName(path)
                         }
                     };
                     break;
@@ -77,7 +86,7 @@ namespace AntigravityEditor
                 {
                     m_Installations = existingPaths.Select(path => new CodeEditor.Installation
                     {
-                        Name = $"Antigravity ({path.Substring(lcp.Length)})",
+                        Name = $"{GetEditorName(path)} ({path.Substring(lcp.Length)})",
                         Path = path
                     }).ToList();
 

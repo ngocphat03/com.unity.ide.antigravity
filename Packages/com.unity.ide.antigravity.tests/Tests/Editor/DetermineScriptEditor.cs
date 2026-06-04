@@ -9,26 +9,26 @@ namespace AntigravityEditor.Tests
     [TestFixture]
     class DetermineScriptEditor
     {
-        [TestCase("/Applications/Antigravity.app")]
+        [TestCase("/Applications/Antigravity IDE.app")]
         [UnityPlatform(RuntimePlatform.OSXEditor)]
         public void OSXPathDiscovery(string path)
         {
             Discover(path);
         }
 
-        [TestCase(@"C:\Program Files\Google\Antigravity\bin\antigravity.cmd")]
-        [TestCase(@"C:\Program Files\Google\Antigravity\Antigravity.exe")]
-        [TestCase(@"C:\Users\Username\AppData\Local\Programs\Google\Antigravity\bin\antigravity.cmd")]
-        [TestCase(@"C:\Users\Username\AppData\Local\Programs\Google\Antigravity\Antigravity.exe")]
+        [TestCase(@"C:\Program Files\Google\Antigravity IDE\bin\antigravity-ide.cmd")]
+        [TestCase(@"C:\Program Files\Google\Antigravity IDE\Antigravity IDE.exe")]
+        [TestCase(@"C:\Users\Username\AppData\Local\Programs\Google\Antigravity IDE\bin\antigravity-ide.cmd")]
+        [TestCase(@"C:\Users\Username\AppData\Local\Programs\Google\Antigravity IDE\Antigravity IDE.exe")]
         [UnityPlatform(RuntimePlatform.WindowsEditor)]
         public void WindowsPathDiscovery(string path)
         {
             Discover(path);
         }
 
-        [TestCase("/usr/bin/antigravity")]
-        [TestCase("/usr/local/bin/antigravity")]
-        [TestCase("/snap/bin/antigravity")]
+        [TestCase("/usr/bin/antigravity-ide")]
+        [TestCase("/usr/local/bin/antigravity-ide")]
+        [TestCase("/snap/bin/antigravity-ide")]
         [UnityPlatform(RuntimePlatform.LinuxEditor)]
         public void LinuxPathDiscovery(string path)
         {
@@ -45,7 +45,7 @@ namespace AntigravityEditor.Tests
                 new CodeEditor.Installation
                 {
                     Path = path,
-                    Name = "Antigravity"
+                    Name = "Antigravity IDE"
                 }
             });
 
@@ -54,6 +54,17 @@ namespace AntigravityEditor.Tests
             editor.TryGetInstallationForPath(path, out var installation);
 
             Assert.AreEqual(path, installation.Path);
+        }
+
+        [TestCase("/Applications/Antigravity IDE.app", "Antigravity IDE")]
+        [TestCase("/Applications/Antigravity.app", "Antigravity IDE")]
+        [TestCase("/usr/bin/antigravity", "Antigravity IDE")]
+        [TestCase("/usr/bin/antigravity-ide", "Antigravity IDE")]
+        [TestCase(@"C:\Program Files\Google\Antigravity IDE\Antigravity IDE.exe", "Antigravity IDE")]
+        [TestCase(@"C:\Program Files\Google\Antigravity\Antigravity.exe", "Antigravity IDE")]
+        public void VerifyEditorNameMapping(string path, string expectedName)
+        {
+            Assert.AreEqual(expectedName, AntigravityDiscovery.GetEditorName(path));
         }
     }
 }

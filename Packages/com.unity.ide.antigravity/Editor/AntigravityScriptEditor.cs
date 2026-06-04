@@ -19,7 +19,10 @@ namespace AntigravityEditor
         IDiscovery m_Discoverability;
         IGenerator m_ProjectGeneration;
 
-        static readonly string[] k_SupportedFileNames = { "antigravity.exe", "antigravity.app", "antigravity.cmd", "antigravity" };
+        static readonly string[] k_SupportedFileNames = { 
+            "antigravityide.exe", "antigravityide.app", "antigravityide.cmd", "antigravityide",
+            "antigravity-ide.cmd", "antigravity-ide"
+        };
 
         static bool IsOSX => Application.platform == RuntimePlatform.OSXEditor;
 
@@ -81,7 +84,7 @@ namespace AntigravityEditor
             {
                 installation = new CodeEditor.Installation
                 {
-                    Name = "Antigravity",
+                    Name = AntigravityDiscovery.GetEditorName(editorPath),
                     Path = editorPath
                 };
             }
@@ -95,7 +98,7 @@ namespace AntigravityEditor
                 {
                     installation = new CodeEditor.Installation
                     {
-                        Name = "Antigravity",
+                        Name = AntigravityDiscovery.GetEditorName(editorPath),
                         Path = editorPath
                     };
                 }
