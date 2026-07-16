@@ -10,6 +10,7 @@ namespace AntigravityEditor.Tests
     class DetermineScriptEditor
     {
         [TestCase("/Applications/Antigravity IDE.app")]
+        [TestCase("/Applications/Antigravity.app")]
         [UnityPlatform(RuntimePlatform.OSXEditor)]
         public void OSXPathDiscovery(string path)
         {
@@ -20,6 +21,10 @@ namespace AntigravityEditor.Tests
         [TestCase(@"C:\Program Files\Google\Antigravity IDE\Antigravity IDE.exe")]
         [TestCase(@"C:\Users\Username\AppData\Local\Programs\Google\Antigravity IDE\bin\antigravity-ide.cmd")]
         [TestCase(@"C:\Users\Username\AppData\Local\Programs\Google\Antigravity IDE\Antigravity IDE.exe")]
+        [TestCase(@"C:\Program Files\Google\Antigravity\bin\antigravity.cmd")]
+        [TestCase(@"C:\Program Files\Google\Antigravity\Antigravity.exe")]
+        [TestCase(@"C:\Users\Username\AppData\Local\Programs\Google\Antigravity\bin\antigravity.cmd")]
+        [TestCase(@"C:\Users\Username\AppData\Local\Programs\Google\Antigravity\Antigravity.exe")]
         [UnityPlatform(RuntimePlatform.WindowsEditor)]
         public void WindowsPathDiscovery(string path)
         {
@@ -29,6 +34,9 @@ namespace AntigravityEditor.Tests
         [TestCase("/usr/bin/antigravity-ide")]
         [TestCase("/usr/local/bin/antigravity-ide")]
         [TestCase("/snap/bin/antigravity-ide")]
+        [TestCase("/usr/bin/antigravity")]
+        [TestCase("/usr/local/bin/antigravity")]
+        [TestCase("/snap/bin/antigravity")]
         [UnityPlatform(RuntimePlatform.LinuxEditor)]
         public void LinuxPathDiscovery(string path)
         {

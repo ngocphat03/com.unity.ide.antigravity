@@ -36,7 +36,8 @@ namespace AntigravityEditor
             string[] possiblePaths =
 #if UNITY_EDITOR_OSX
             {
-                "/Applications/Antigravity IDE.app"
+                "/Applications/Antigravity IDE.app",
+                "/Applications/Antigravity.app"
             };
 #elif UNITY_EDITOR_WIN
             {
@@ -44,16 +45,27 @@ namespace AntigravityEditor
                 GetProgramFiles() + @"/Google/Antigravity IDE/bin/antigravity.cmd",
                 GetProgramFiles() + @"/Google/Antigravity IDE/Antigravity IDE.exe",
                 GetProgramFiles() + @"/Google/Antigravity IDE/Antigravity.exe",
+                GetProgramFiles() + @"/Google/Antigravity/bin/antigravity-ide.cmd",
+                GetProgramFiles() + @"/Google/Antigravity/bin/antigravity.cmd",
+                GetProgramFiles() + @"/Google/Antigravity/Antigravity IDE.exe",
+                GetProgramFiles() + @"/Google/Antigravity/Antigravity.exe",
                 GetLocalAppData() + @"/Programs/Google/Antigravity IDE/bin/antigravity-ide.cmd",
                 GetLocalAppData() + @"/Programs/Google/Antigravity IDE/bin/antigravity.cmd",
                 GetLocalAppData() + @"/Programs/Google/Antigravity IDE/Antigravity IDE.exe",
                 GetLocalAppData() + @"/Programs/Google/Antigravity IDE/Antigravity.exe",
+                GetLocalAppData() + @"/Programs/Google/Antigravity/bin/antigravity-ide.cmd",
+                GetLocalAppData() + @"/Programs/Google/Antigravity/bin/antigravity.cmd",
+                GetLocalAppData() + @"/Programs/Google/Antigravity/Antigravity IDE.exe",
+                GetLocalAppData() + @"/Programs/Google/Antigravity/Antigravity.exe",
             };
 #else
             {
                 "/usr/bin/antigravity-ide",
                 "/usr/local/bin/antigravity-ide",
-                "/snap/bin/antigravity-ide"
+                "/snap/bin/antigravity-ide",
+                "/usr/bin/antigravity",
+                "/usr/local/bin/antigravity",
+                "/snap/bin/antigravity"
             };
 #endif
             var existingPaths = possiblePaths.Where(AntigravityExists).ToList();

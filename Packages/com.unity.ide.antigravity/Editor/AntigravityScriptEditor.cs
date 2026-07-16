@@ -21,7 +21,8 @@ namespace AntigravityEditor
 
         static readonly string[] k_SupportedFileNames = { 
             "antigravityide.exe", "antigravityide.app", "antigravityide.cmd", "antigravityide",
-            "antigravity-ide.cmd", "antigravity-ide"
+            "antigravity-ide.cmd", "antigravity-ide",
+            "antigravity.exe", "antigravity.app", "antigravity"
         };
 
         static bool IsOSX => Application.platform == RuntimePlatform.OSXEditor;

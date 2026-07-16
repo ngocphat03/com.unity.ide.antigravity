@@ -2,6 +2,11 @@
 
 All notable changes to this package will be documented in this file.
 
+## [1.1.0] - 2026-07-16
+
+### Added
+- Added support for macOS 26 and Windows 10 installations by discovering and supporting standard `Antigravity` naming conventions for folders and executable binaries.
+
 ## [1.0.0] - 2026-01-06
 
 ### Added
